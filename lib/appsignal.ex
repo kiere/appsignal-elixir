@@ -138,4 +138,6 @@ defmodule Appsignal do
     encoded_tags = Appsignal.Utils.DataEncoder.encode(tags)
     :ok = Appsignal.Nif.add_distribution_value(key, value, encoded_tags)
   end
+
+  defdelegate instrument(name, fun), to: Appsignal.Instrumentation.Helpers
 end
